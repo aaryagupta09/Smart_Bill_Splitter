@@ -30,7 +30,7 @@ def analyze_receipt(image: Image.Image) -> ExtractedBill:
     prompt = (
         "Extract line items, quantity, prices, subtotal, tax, "
         "service charges, discounts, and total from this bill image. "
-        "Set missing numeric values to 0.0."
+        "Set missing numeric values to 0.00."
     )
     response = client.models.generate_content(
         model="gemini-3.6-flash",
@@ -44,7 +44,7 @@ def analyze_receipt(image: Image.Image) -> ExtractedBill:
 
 # 3. Proportional Split Math
 def calculate_splits(bill: ExtractedBill, assignments: dict, people: list):
-    person_subtotals = {p: 0.0 for p in people}
+    person_subtotals = {p: 0.00 for p in people}
     
     for idx, item in enumerate(bill.items):
         assigned = assignments.get(idx, [])
