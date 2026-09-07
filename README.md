@@ -30,4 +30,5 @@ Smart_Bill_Splitter/
 ├── app.py              # Main Streamlit application entry point
 ├── requirements.txt    # Project dependencies
 ├── README.md           # Project documentation
-└── .gitignore          # File exclusions (excludes venv/)
+├── .gitignore          # File exclusions (excludes venv/)
+└── .env.example        # Environment variable configuration template
